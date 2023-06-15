@@ -1,6 +1,6 @@
 'use client'
-
 import { useState } from 'react'
+import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Dialog } from '@headlessui/react'
@@ -15,10 +15,12 @@ export const MainMenu: React.FC<MenuProps> = ({
   companyLogoUrl,
   navigation
 }) => {
+  const pathName = usePathname()
+  const isDetailPage = (path: string) => pathName?.includes(path)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="absolute w-full border-b bg-white shadow-md">
+    <header className="sticky z-10 w-full border-b bg-white shadow-md">
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between py-4"
         aria-label="Global"
@@ -51,7 +53,9 @@ export const MainMenu: React.FC<MenuProps> = ({
             <Link
               key={item.name}
               href={item.href}
-              className="text-base leading-6 text-gray-900"
+              className={`text-base leading-6 ${
+                isDetailPage(item.href) ? 'text-sky-500' : 'text-gray-900'
+              }`}
             >
               {item.name}
             </Link>
@@ -97,6 +101,7 @@ export const MainMenu: React.FC<MenuProps> = ({
                   <Link
                     key={item.name}
                     href={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
                     {item.name}

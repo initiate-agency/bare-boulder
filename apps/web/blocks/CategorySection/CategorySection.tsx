@@ -1,29 +1,35 @@
 'use client'
 import { Container } from '@/components/Container'
-import { Category as CategoryComponent } from '@/components/Category'
+import {
+  Category as CategoryComponent,
+  CategoryProps
+} from '@/components/Category'
 
-export type HeroProps = {
+export type CategorySectionProps = {
   horizontalPadding?: boolean
   bottomPadding?: boolean
   topPadding?: boolean
   fullWidth?: boolean
+  bgColor?: string
 }
 
 export const CategorySection = ({
   horizontalPadding,
   bottomPadding,
   topPadding,
-  fullWidth
-}: HeroProps) => {
+  fullWidth,
+  bgColor,
+  ...rest
+}: CategorySectionProps & CategoryProps) => {
   return (
     <Container
       horizontalPadding={horizontalPadding}
       bottomPadding={bottomPadding}
       topPadding={topPadding}
       fullWidth={fullWidth}
-      className="!bg-slate-50"
+      bgColor={bgColor}
     >
-      <CategoryComponent />
+      <CategoryComponent {...rest} />
     </Container>
   )
 }

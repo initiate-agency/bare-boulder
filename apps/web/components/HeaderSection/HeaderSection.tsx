@@ -3,14 +3,14 @@ import clsx from 'clsx'
 
 type SectionHeadingProps = {
   title: string
-  description: string
+  description?: string
   centered?: boolean
   className?: string
 }
 
 export function HeaderSection({
   title,
-  description,
+  description = '',
   className,
   centered = true
 }: SectionHeadingProps) {
