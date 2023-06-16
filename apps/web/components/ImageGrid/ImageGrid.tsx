@@ -1,17 +1,44 @@
 'use client'
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useMemo } from 'react'
 export type ImageGridProps = {
   isPorfoPage?: boolean
+  imgList: string[]
 }
 
-export const ImageGrid = ({ isPorfoPage }: ImageGridProps) => {
-  const [selectedImg, setSelectedImg] = useState('')
+export const ImageGrid = ({ isPorfoPage, imgList }: ImageGridProps) => {
+  const [selectedImg, setSelectedImg] = useState(-1)
+
+  const isTheFirstImg = useMemo(() => selectedImg === 0, [selectedImg])
+  const isTheLastImg = useMemo(
+    () => selectedImg === imgList.length - 1,
+    [selectedImg, imgList]
+  )
 
   const onClickImg = useCallback(
-    (imgUrl: string) => {
-      if (isPorfoPage) setSelectedImg(imgUrl)
+    (urlIndex: number) => {
+      if (isPorfoPage) setSelectedImg(urlIndex)
     },
     [isPorfoPage]
+  )
+
+  const onClickClose = useCallback(() => {
+    setSelectedImg(-1)
+  }, [])
+
+  const onClickNext = useCallback(
+    (e: any) => {
+      e.stopPropagation()
+      setSelectedImg(selectedImg + 1)
+    },
+    [selectedImg]
+  )
+
+  const onClickPrevious = useCallback(
+    (e: any) => {
+      e.stopPropagation()
+      setSelectedImg(selectedImg - 1)
+    },
+    [selectedImg]
   )
 
   return (
@@ -40,31 +67,25 @@ export const ImageGrid = ({ isPorfoPage }: ImageGridProps) => {
           <div>
             <img
               className="h-full max-w-full cursor-pointer rounded-lg object-cover"
-              src="/images/pexels-tembela-bohle-1102874.jpeg"
+              src={imgList[0]}
               alt=""
-              onClick={() =>
-                onClickImg('/images/pexels-tembela-bohle-1102874.jpeg')
-              }
+              onClick={() => onClickImg(0)}
             />
           </div>
           <div>
             <img
               className="h-full max-w-full cursor-pointer rounded-lg object-cover"
-              src="/images/pexels-robert-bogdan-910122.jpeg"
+              src={imgList[1]}
               alt=""
-              onClick={() =>
-                onClickImg('/images/pexels-robert-bogdan-910122.jpeg')
-              }
+              onClick={() => onClickImg(1)}
             />
           </div>
           <div>
             <img
               className="h-full max-w-full cursor-pointer rounded-lg object-cover"
-              src="/images/pexels-vinta-supply-co-_-nyc-842958.jpeg"
+              src={imgList[2]}
               alt=""
-              onClick={() =>
-                onClickImg('/images/pexels-vinta-supply-co-_-nyc-842958.jpeg')
-              }
+              onClick={() => onClickImg(2)}
             />
           </div>
         </div>
@@ -72,31 +93,25 @@ export const ImageGrid = ({ isPorfoPage }: ImageGridProps) => {
           <div>
             <img
               className="h-full max-w-full cursor-pointer rounded-lg object-cover"
-              src="/images/pexels-oziel-gómez-868097.jpeg"
+              src={imgList[3]}
               alt=""
-              onClick={() =>
-                onClickImg('/images/pexels-oziel-gómez-868097.jpeg')
-              }
+              onClick={() => onClickImg(3)}
             />
           </div>
           <div>
             <img
               className="h-full max-w-full cursor-pointer rounded-lg object-cover"
-              src="/images/pexels-lalu-fatoni-732632.jpeg"
+              src={imgList[4]}
               alt=""
-              onClick={() =>
-                onClickImg('/images/pexels-lalu-fatoni-732632.jpeg')
-              }
+              onClick={() => onClickImg(4)}
             />
           </div>
           <div>
             <img
               className="h-full max-w-full cursor-pointer rounded-lg object-cover"
-              src="/images/pexels-анастасия-8365688.jpeg"
+              src={imgList[5]}
               alt=""
-              onClick={() =>
-                onClickImg('/images/pexels-анастасия-8365688.jpeg')
-              }
+              onClick={() => onClickImg(5)}
             />
           </div>
         </div>
@@ -104,27 +119,25 @@ export const ImageGrid = ({ isPorfoPage }: ImageGridProps) => {
           <div>
             <img
               className="h-full max-w-full cursor-pointer rounded-lg object-cover"
-              src="/images/pexels-lumn-167703.jpeg"
+              src={imgList[6]}
               alt=""
-              onClick={() => onClickImg('/images/pexels-lumn-167703.jpeg')}
+              onClick={() => onClickImg(6)}
             />
           </div>
           <div>
             <img
               className="h-full max-w-full cursor-pointer rounded-lg object-cover"
-              src="/images/pexels-pixabay-259756.jpeg"
+              src={imgList[7]}
               alt=""
-              onClick={() => onClickImg('/images/pexels-pixabay-259756.jpeg')}
+              onClick={() => onClickImg(7)}
             />
           </div>
           <div>
             <img
               className="h-full max-w-full cursor-pointer rounded-lg object-cover"
-              src="/images/pexels-skylar-kang-6044266.jpeg"
+              src={imgList[8]}
               alt=""
-              onClick={() =>
-                onClickImg('/images/pexels-skylar-kang-6044266.jpeg')
-              }
+              onClick={() => onClickImg(8)}
             />
           </div>
         </div>
@@ -132,49 +145,59 @@ export const ImageGrid = ({ isPorfoPage }: ImageGridProps) => {
           <div>
             <img
               className="h-full max-w-full cursor-pointer rounded-lg object-cover"
-              src="/images/pexels-wallace-chuck-2973392.jpeg"
+              src={imgList[9]}
               alt=""
-              onClick={() =>
-                onClickImg('/images/pexels-wallace-chuck-2973392.jpeg')
-              }
+              onClick={() => onClickImg(9)}
             />
           </div>
           <div>
             <img
               className="h-full max-w-full cursor-pointer rounded-lg object-cover"
-              src="/images/pexels-vinta-supply-co-_-nyc-843194.jpeg"
+              src={imgList[10]}
               alt=""
-              onClick={() =>
-                onClickImg('/images/pexels-vinta-supply-co-_-nyc-843194.jpeg')
-              }
+              onClick={() => onClickImg(10)}
             />
           </div>
           <div>
             <img
               className="h-full max-w-full cursor-pointer rounded-lg object-cover"
-              src="/images/pexels-godisable-jacob-978665.jpeg"
+              src={imgList[11]}
               alt=""
-              onClick={() =>
-                onClickImg('/images/pexels-godisable-jacob-978665.jpeg')
-              }
+              onClick={() => onClickImg(11)}
             />
           </div>
         </div>
       </div>
-      {selectedImg && (
+      {selectedImg >= 0 && (
         <div
           id="modal"
+          onClick={onClickClose}
           className="z-80 fixed left-0 top-0 flex h-screen w-screen items-center justify-center bg-black/70"
         >
           <a
             className="z-90 fixed right-8 top-6 cursor-pointer text-5xl font-bold text-white lg:top-20"
-            onClick={() => onClickImg('')}
+            onClick={onClickClose}
           >
             &times;
           </a>
-
+          {!isTheFirstImg && (
+            <a
+              className="z-90 fixed left-8 top-20 cursor-pointer text-5xl font-bold text-white lg:top-96"
+              onClick={onClickPrevious}
+            >
+              &lt;
+            </a>
+          )}
+          {!isTheLastImg && (
+            <a
+              className="z-90 fixed right-8 top-20 cursor-pointer text-5xl font-bold text-white lg:top-96"
+              onClick={onClickNext}
+            >
+              &gt;
+            </a>
+          )}
           <img
-            src={selectedImg}
+            src={imgList[selectedImg]}
             alt="selected-img"
             className="max-h-[600px] max-w-[800px] object-cover"
           />
