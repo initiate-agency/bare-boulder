@@ -8,7 +8,7 @@ export type ClientProps = {
 
 export const Client = ({ clients }: ClientProps) => {
   return (
-    <div className="bg-white py-10">
+    <div className="rounded-lg bg-white py-10">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <h2 className="text-center text-2xl font-bold tracking-tight text-gray-700">
           {`Our Clients`}

@@ -8,7 +8,7 @@ export const HeroSection = () => {
   const [open, setOpen] = useState(false)
 
   return (
-    <div className="bg-white">
+    <div className="bg-gray-100">
       {/* Mobile menu */}
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
@@ -151,7 +151,7 @@ export const HeroSection = () => {
 
                 <a
                   href="#"
-                  className="inline-block rounded-xl border border-transparent bg-sky-500 px-3 py-2 text-center font-bold text-white"
+                  className="rounded-md bg-sky-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600"
                 >
                   Free Consultation
                 </a>

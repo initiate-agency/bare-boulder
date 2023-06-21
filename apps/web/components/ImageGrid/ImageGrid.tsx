@@ -1,4 +1,5 @@
 'use client'
+import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { useState, useCallback, useMemo } from 'react'
 export type ImageGridProps = {
@@ -7,6 +8,8 @@ export type ImageGridProps = {
 }
 
 export const ImageGrid = ({ isPorfoPage, imgList }: ImageGridProps) => {
+  const router = useRouter()
+
   const [selectedImg, setSelectedImg] = useState(-1)
 
   const isTheFirstImg = useMemo(() => selectedImg === 0, [selectedImg])
@@ -17,7 +20,11 @@ export const ImageGrid = ({ isPorfoPage, imgList }: ImageGridProps) => {
 
   const onClickImg = useCallback(
     (urlIndex: number) => {
-      if (isPorfoPage) setSelectedImg(urlIndex)
+      if (isPorfoPage) {
+        setSelectedImg(urlIndex)
+        return
+      }
+      router.push('/portfolio')
     },
     [isPorfoPage]
   )

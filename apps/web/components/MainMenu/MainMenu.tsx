@@ -67,7 +67,7 @@ export const MainMenu: React.FC<MenuProps> = ({
             href={process.env.NEXT_PUBLIC_CMS_URL + '/admin'}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-xl border border-transparent bg-sky-500 px-3 py-2 text-sm font-bold leading-6 text-gray-900 text-white"
+            className="rounded-md bg-sky-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600"
           >
             Free Consultation
           </a>
