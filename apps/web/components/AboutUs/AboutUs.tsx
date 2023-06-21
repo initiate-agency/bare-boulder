@@ -1,12 +1,17 @@
+import Image from 'next/image'
+
 export const AboutUs = () => {
   return (
     <div aria-labelledby="cause-heading">
       <div className="relative bg-gray-800 px-6 py-32 sm:px-12 sm:py-40 lg:px-16">
         <div className="absolute inset-0 overflow-hidden">
-          <img
+          <div className="h-full w-full "></div>
+          <Image
+            fill
+            sizes="(max-width: 640px) 100vw, 1240px"
             src="https://tailwindui.com/img/ecommerce-images/home-page-03-feature-section-full-width.jpg"
             alt=""
-            className="h-full w-full object-cover object-center"
+            className="object-cover object-center"
           />
         </div>
         <div

@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 const CATEGORY_URL = {
   BASE: '/services',
   PROTOTYPING: '/services/prototyping',
@@ -44,12 +46,15 @@ export const Category = ({
         )}
 
         <div className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:grid-rows-2 sm:gap-x-6 lg:gap-8">
-          <div className="aspect-h-1 aspect-w-2 sm:aspect-h-1 sm:aspect-w-1 group overflow-hidden rounded-lg sm:row-span-2">
-            <img
+          <div className="aspect-h-1 aspect-w-2 sm:aspect-h-1 sm:aspect-w-1 group relative overflow-hidden rounded-lg sm:row-span-2">
+            <Image
+              fill
+              sizes="(max-width: 640px) 100vw, 400px"
               src={imageUrls?.[0]}
               alt="Two models wearing women's black cotton crewneck tee and off-white cotton crewneck tee."
               className="object-cover object-center group-hover:opacity-75"
             />
+
             <div
               aria-hidden="true"
               className="bg-gradient-to-b from-transparent to-black opacity-50"
@@ -66,7 +71,9 @@ export const Category = ({
             </div>
           </div>
           <div className="aspect-h-1 aspect-w-2 sm:aspect-none group overflow-hidden rounded-lg sm:relative sm:h-full">
-            <img
+            <Image
+              fill
+              sizes="(max-width: 640px) 100vw, 400px"
               src={imageUrls?.[1]}
               alt="Wooden shelf with gray and olive drab green baseball caps, next to wooden clothes hanger with sweaters."
               className="object-cover object-center group-hover:opacity-75 sm:absolute sm:inset-0 sm:h-full sm:w-full"
@@ -87,7 +94,9 @@ export const Category = ({
             </div>
           </div>
           <div className="aspect-h-1 aspect-w-2 sm:aspect-none group overflow-hidden rounded-lg sm:relative sm:h-full">
-            <img
+            <Image
+              fill
+              sizes="(max-width: 640px) 100vw, 400px"
               src={imageUrls?.[2]}
               alt="Walnut desk organizer set with white modular trays, next to porcelain mug on wooden desk."
               className="object-cover object-center group-hover:opacity-75 sm:absolute sm:inset-0 sm:h-full sm:w-full"

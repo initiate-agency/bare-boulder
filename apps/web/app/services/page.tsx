@@ -4,7 +4,7 @@ import { Container } from '@/components/Container'
 const categoryUrls = [
   '/images/image_(1).png',
   '/images/pexels-lumn-167703.jpeg',
-  'images/pexels-wallace-chuck-2973392.jpeg'
+  '/images/pexels-wallace-chuck-2973392.jpeg'
 ]
 
 type PageProps = {

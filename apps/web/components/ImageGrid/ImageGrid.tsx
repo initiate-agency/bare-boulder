@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image'
 import { useState, useCallback, useMemo } from 'react'
 export type ImageGridProps = {
   isPorfoPage?: boolean
@@ -63,25 +64,34 @@ export const ImageGrid = ({ isPorfoPage, imgList }: ImageGridProps) => {
         </p>
       </div>
       <div className="grid grid-cols-2 gap-4 px-3 md:grid-cols-4 xl:px-0">
-        <div className="grid gap-4">
-          <div>
-            <img
+        <div className="relative grid gap-4">
+          <div className="relative">
+            <Image
+              width={400}
+              height={1000}
+              sizes="(max-width: 640px) 100vw, 400px"
               className="h-full max-w-full cursor-pointer rounded-lg object-cover"
               src={imgList[0]}
               alt=""
               onClick={() => onClickImg(0)}
             />
           </div>
-          <div>
-            <img
+          <div className="relative">
+            <Image
+              width={400}
+              height={1000}
+              sizes="(max-width: 640px) 100vw, 400px"
               className="h-full max-w-full cursor-pointer rounded-lg object-cover"
               src={imgList[1]}
               alt=""
               onClick={() => onClickImg(1)}
             />
           </div>
-          <div>
-            <img
+          <div className="relative">
+            <Image
+              width={400}
+              height={1000}
+              sizes="(max-width: 640px) 100vw, 400px"
               className="h-full max-w-full cursor-pointer rounded-lg object-cover"
               src={imgList[2]}
               alt=""
@@ -90,24 +100,33 @@ export const ImageGrid = ({ isPorfoPage, imgList }: ImageGridProps) => {
           </div>
         </div>
         <div className="grid gap-4">
-          <div>
-            <img
+          <div className="relative">
+            <Image
+              width={400}
+              height={1000}
+              sizes="(max-width: 640px) 100vw, 400px"
               className="h-full max-w-full cursor-pointer rounded-lg object-cover"
               src={imgList[3]}
               alt=""
               onClick={() => onClickImg(3)}
             />
           </div>
-          <div>
-            <img
+          <div className="relative">
+            <Image
+              width={400}
+              height={1000}
+              sizes="(max-width: 640px) 100vw, 400px"
               className="h-full max-w-full cursor-pointer rounded-lg object-cover"
               src={imgList[4]}
               alt=""
               onClick={() => onClickImg(4)}
             />
           </div>
-          <div>
-            <img
+          <div className="relative">
+            <Image
+              width={400}
+              height={1000}
+              sizes="(max-width: 640px) 100vw, 400px"
               className="h-full max-w-full cursor-pointer rounded-lg object-cover"
               src={imgList[5]}
               alt=""
@@ -116,24 +135,33 @@ export const ImageGrid = ({ isPorfoPage, imgList }: ImageGridProps) => {
           </div>
         </div>
         <div className="grid gap-4">
-          <div>
-            <img
+          <div className="relative">
+            <Image
+              width={400}
+              height={1000}
+              sizes="(max-width: 640px) 100vw, 400px"
               className="h-full max-w-full cursor-pointer rounded-lg object-cover"
               src={imgList[6]}
               alt=""
               onClick={() => onClickImg(6)}
             />
           </div>
-          <div>
-            <img
+          <div className="relative">
+            <Image
+              width={400}
+              height={1000}
+              sizes="(max-width: 640px) 100vw, 400px"
               className="h-full max-w-full cursor-pointer rounded-lg object-cover"
               src={imgList[7]}
               alt=""
               onClick={() => onClickImg(7)}
             />
           </div>
-          <div>
-            <img
+          <div className="relative">
+            <Image
+              width={400}
+              height={1000}
+              sizes="(max-width: 640px) 100vw, 400px"
               className="h-full max-w-full cursor-pointer rounded-lg object-cover"
               src={imgList[8]}
               alt=""
@@ -142,24 +170,33 @@ export const ImageGrid = ({ isPorfoPage, imgList }: ImageGridProps) => {
           </div>
         </div>
         <div className="grid gap-4">
-          <div>
-            <img
+          <div className="relative">
+            <Image
+              width={400}
+              height={1000}
+              sizes="(max-width: 640px) 100vw, 400px"
               className="h-full max-w-full cursor-pointer rounded-lg object-cover"
               src={imgList[9]}
               alt=""
               onClick={() => onClickImg(9)}
             />
           </div>
-          <div>
-            <img
+          <div className="relative">
+            <Image
+              width={400}
+              height={1000}
+              sizes="(max-width: 640px) 100vw, 400px"
               className="h-full max-w-full cursor-pointer rounded-lg object-cover"
               src={imgList[10]}
               alt=""
               onClick={() => onClickImg(10)}
             />
           </div>
-          <div>
-            <img
+          <div className="relative">
+            <Image
+              width={400}
+              height={1000}
+              sizes="(max-width: 640px) 100vw, 400px"
               className="h-full max-w-full cursor-pointer rounded-lg object-cover"
               src={imgList[11]}
               alt=""
@@ -196,11 +233,15 @@ export const ImageGrid = ({ isPorfoPage, imgList }: ImageGridProps) => {
               &gt;
             </a>
           )}
-          <img
-            src={imgList[selectedImg]}
-            alt="selected-img"
-            className="max-h-[600px] max-w-[800px] object-cover"
-          />
+          <div className="relative max-h-[600px] max-w-[800px] object-cover">
+            <Image
+              width={800}
+              height={600}
+              src={imgList[selectedImg]}
+              alt="selected-img"
+              className="max-h-[600px] max-w-[800px] object-cover"
+            />
+          </div>
         </div>
       )}
     </div>

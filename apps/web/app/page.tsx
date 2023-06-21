@@ -10,14 +10,14 @@ import { ContactSection } from '@/blocks/ContactSection'
 const categoryUrls = [
   '/images/pexels-tembela-bohle-1102874.jpeg',
   '/images/pexels-lumn-167703.jpeg',
-  'images/pexels-wallace-chuck-2973392.jpeg'
+  '/images/pexels-wallace-chuck-2973392.jpeg'
 ]
 
 const imgList = [
   '/images/pexels-tembela-bohle-1102874.jpeg',
   '/images/pexels-robert-bogdan-910122.jpeg',
   '/images/pexels-vinta-supply-co-_-nyc-842958.jpeg',
-  '/images/pexels-oziel-gómez-868097.jpeg',
+  '/images/home-1.jpg',
   '/images/pexels-lalu-fatoni-732632.jpeg',
   '/images/pexels-анастасия-8365688.jpeg',
   '/images/pexels-lumn-167703.jpeg',

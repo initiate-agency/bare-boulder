@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 export const Contact = () => {
   return (
     <div>
@@ -14,11 +16,15 @@ export const Contact = () => {
       </div>
       <div className="relative rounded-xl bg-white">
         <div className="rounded-r-lg px-3 lg:absolute lg:inset-0 lg:left-1/2 lg:px-0">
-          <img
-            className="h-64 w-full rounded-r-lg bg-gray-50 object-cover sm:h-80 lg:absolute lg:h-full"
-            src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-x=.4&w=2560&h=3413&&q=80"
-            alt=""
-          />
+          <div className="relative h-64 w-full rounded-r-lg bg-gray-50 sm:h-80 lg:absolute lg:h-full">
+            <Image
+              fill
+              className="object-cover"
+              sizes="(min-width: 1024px) 640px, 100vw"
+              src="/images/pexels-wallace-chuck-2973392.jpeg"
+              alt=""
+            />
+          </div>
         </div>
         <div className="pb-24 pt-16 sm:pb-32 sm:pt-24 lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:pt-32">
           <div className="px-3 lg:px-10">
