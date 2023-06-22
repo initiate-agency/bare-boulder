@@ -25,7 +25,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} overflow-x-hidden font-sans`}>
         <MainMenu
-          companyLogoUrl={'/images/bare-boulder-logo.webp'}
+          companyLogoUrl={'/images/bare-boulder-logo-dark.png'}
           navigation={NAVIGATION}
         />
         {children}

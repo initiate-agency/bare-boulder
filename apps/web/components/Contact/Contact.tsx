@@ -51,7 +51,7 @@ export const Contact = () => {
                         name="first-name"
                         id="first-name"
                         autoComplete="given-name"
-                        className="block w-full !rounded-lg border px-3.5 py-2 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="block w-full !rounded-lg border px-3.5 py-2 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
@@ -68,7 +68,7 @@ export const Contact = () => {
                         name="last-name"
                         id="last-name"
                         autoComplete="family-name"
-                        className="block w-full !rounded-lg border px-3.5 py-2 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="block w-full !rounded-lg border px-3.5 py-2 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
@@ -85,7 +85,7 @@ export const Contact = () => {
                         name="email"
                         type="email"
                         autoComplete="email"
-                        className="block w-full !rounded-lg border px-3.5 py-2 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="block w-full !rounded-lg border px-3.5 py-2 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
@@ -102,7 +102,7 @@ export const Contact = () => {
                         name="company"
                         id="company"
                         autoComplete="organization"
-                        className="block w-full !rounded-lg border px-3.5 py-2 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="block w-full !rounded-lg border px-3.5 py-2 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
@@ -125,7 +125,7 @@ export const Contact = () => {
                         id="phone"
                         autoComplete="tel"
                         aria-describedby="phone-description"
-                        className="block w-full !rounded-lg border px-3.5 py-2 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="block w-full !rounded-lg border px-3.5 py-2 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
@@ -147,7 +147,7 @@ export const Contact = () => {
                         name="message"
                         rows={4}
                         aria-describedby="message-description"
-                        className="block w-full !rounded-lg border px-3.5 py-2 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="block w-full !rounded-lg border px-3.5 py-2 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
                         defaultValue={''}
                       />
                     </div>
@@ -163,7 +163,7 @@ export const Contact = () => {
                           name="budget"
                           defaultValue="under_25k"
                           type="radio"
-                          className="mt-1 h-4 w-4 border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-600"
+                          className="mt-1 h-4 w-4 border-gray-300 text-sky-600 shadow-sm focus:ring-sky-600"
                         />
                         <label htmlFor="budget-under-25k">Less than $25K</label>
                       </div>
@@ -173,7 +173,7 @@ export const Contact = () => {
                           name="budget"
                           defaultValue="25k-50k"
                           type="radio"
-                          className="mt-1 h-4 w-4 border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-600"
+                          className="mt-1 h-4 w-4 border-gray-300 text-sky-600 shadow-sm focus:ring-sky-600"
                         />
                         <label htmlFor="budget-25k-50k">$25K – $50K</label>
                       </div>
@@ -183,7 +183,7 @@ export const Contact = () => {
                           name="budget"
                           defaultValue="50k-100k"
                           type="radio"
-                          className="mt-1 h-4 w-4 border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-600"
+                          className="mt-1 h-4 w-4 border-gray-300 text-sky-600 shadow-sm focus:ring-sky-600"
                         />
                         <label htmlFor="budget-50k-100k">$50K – $100K</label>
                       </div>
@@ -193,7 +193,7 @@ export const Contact = () => {
                           name="budget"
                           defaultValue="over_100k"
                           type="radio"
-                          className="mt-1 h-4 w-4 border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-600"
+                          className="mt-1 h-4 w-4 border-gray-300 text-sky-600 shadow-sm focus:ring-sky-600"
                         />
                         <label htmlFor="budget-over-100k">$100K+</label>
                       </div>
@@ -203,7 +203,7 @@ export const Contact = () => {
                 <div className="mt-10 flex justify-end border-t border-gray-900/10 pt-8">
                   <button
                     type="submit"
-                    className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    className="rounded-md bg-sky-600 px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-sky-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600"
                   >
                     Send message
                   </button>

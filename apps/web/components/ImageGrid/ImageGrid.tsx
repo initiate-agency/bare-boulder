@@ -26,7 +26,7 @@ export const ImageGrid = ({ isPorfoPage, imgList }: ImageGridProps) => {
       }
       router.push('/portfolio')
     },
-    [isPorfoPage]
+    [isPorfoPage, router]
   )
 
   const onClickClose = useCallback(() => {
