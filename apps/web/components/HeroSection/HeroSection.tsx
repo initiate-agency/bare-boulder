@@ -1,12 +1,7 @@
 'use client'
 import Image from 'next/image'
-import { Fragment, useState } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
-import { XMarkIcon } from '@heroicons/react/24/outline'
 
 export const HeroSection = () => {
-  const [open, setOpen] = useState(false)
-
   return (
     <div className="mt-6">
       <div className="relative overflow-hidden">
