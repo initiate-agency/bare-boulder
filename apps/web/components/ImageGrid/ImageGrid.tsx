@@ -219,14 +219,14 @@ export const ImageGrid = ({ isPorfoPage, imgList }: ImageGridProps) => {
           className="z-80 fixed left-0 top-0 flex h-screen w-screen items-center justify-center bg-black/70"
         >
           <a
-            className="z-90 fixed right-8 top-6 cursor-pointer text-5xl font-bold text-white lg:top-20"
+            className="z-90 fixed right-8 top-6 z-10 cursor-pointer text-5xl font-bold text-white shadow-md lg:top-20"
             onClick={onClickClose}
           >
             &times;
           </a>
           {!isTheFirstImg && (
             <a
-              className="z-90 fixed left-8 top-20 cursor-pointer text-5xl font-bold text-white lg:top-96"
+              className="z-90 fixed left-8 top-[50%] z-10 cursor-pointer text-5xl font-bold text-white shadow-md lg:top-96"
               onClick={onClickPrevious}
             >
               &lt;
@@ -234,7 +234,7 @@ export const ImageGrid = ({ isPorfoPage, imgList }: ImageGridProps) => {
           )}
           {!isTheLastImg && (
             <a
-              className="z-90 fixed right-8 top-20 cursor-pointer text-5xl font-bold text-white lg:top-96"
+              className="fixed right-8 top-[50%] z-10 cursor-pointer text-5xl font-bold text-white shadow-md lg:top-96"
               onClick={onClickNext}
             >
               &gt;
