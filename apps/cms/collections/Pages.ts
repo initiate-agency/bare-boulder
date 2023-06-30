@@ -9,7 +9,8 @@ export const Pages: CollectionConfig = {
   slug: 'pages',
   admin: {
     useAsTitle: 'title',
-    defaultColumns: ['title', 'slug', 'updatedAt']
+    defaultColumns: ['title', 'slug', 'updatedAt'],
+    hidden: true
   },
   versions: {
     drafts: true

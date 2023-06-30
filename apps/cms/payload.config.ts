@@ -8,8 +8,9 @@ import Posts from './collections/Posts'
 import Tags from './collections/Tags'
 import Users from './collections/Users'
 import Media from './collections/Media'
-import { Company } from './globals/Company'
-import { MainMenu } from './globals/MainMenu'
+import Projects from './collections/Projects'
+// import { Company } from './globals/Company'
+// import { MainMenu } from './globals/MainMenu'
 
 export default buildConfig({
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
@@ -22,8 +23,8 @@ export default buildConfig({
   admin: {
     user: Users.slug
   },
-  collections: [Pages, Categories, Posts, Tags, Users, Media],
-  globals: [Company, MainMenu],
+  collections: [Projects, Pages, Categories, Posts, Tags, Users, Media],
+  // globals: [Company, MainMenu],
   typescript: {
     outputFile: path.resolve(__dirname, '../../packages/types/payload-types.ts')
   },

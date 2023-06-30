@@ -1,4 +1,5 @@
 'use client'
+import { Project } from 'types'
 import { Container } from '@/components/Container'
 import {
   ImageGrid as ImageGridComponent,
@@ -6,6 +7,7 @@ import {
 } from '@/components/ImageGrid'
 
 export type ImageGridSectionProps = {
+  projects: Project[]
   horizontalPadding?: boolean
   bottomPadding?: boolean
   topPadding?: boolean
@@ -14,6 +16,7 @@ export type ImageGridSectionProps = {
 }
 
 export const ImageGridSection = ({
+  projects,
   horizontalPadding,
   bottomPadding,
   topPadding,
@@ -29,7 +32,7 @@ export const ImageGridSection = ({
       fullWidth={fullWidth}
       bgColor={bgColor}
     >
-      <ImageGridComponent {...rest} />
+      <ImageGridComponent projects={projects} {...rest} />
     </Container>
   )
 }

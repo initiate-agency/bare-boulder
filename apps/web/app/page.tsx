@@ -1,3 +1,6 @@
+import { notFound } from 'next/navigation'
+
+import { getProjects } from './queries'
 import { Container } from '@/components/Container'
 import { HeroSection } from '@/blocks/HeroSection'
 import { ClientSection } from '@/blocks/ClientSection'
@@ -13,27 +16,18 @@ const categoryUrls = [
   '/images/pexels-wallace-chuck-2973392.jpeg'
 ]
 
-const imgList = [
-  '/images/pexels-tembela-bohle-1102874.jpeg',
-  '/images/pexels-robert-bogdan-910122.jpeg',
-  '/images/pexels-vinta-supply-co-_-nyc-842958.jpeg',
-  '/images/home-1.jpg',
-  '/images/pexels-lalu-fatoni-732632.jpeg',
-  '/images/pexels-анастасия-8365688.jpeg',
-  '/images/pexels-lumn-167703.jpeg',
-  '/images/pexels-pixabay-259756.jpeg',
-  '/images/pexels-skylar-kang-6044266.jpeg',
-  '/images/pexels-wallace-chuck-2973392.jpeg',
-  '/images/pexels-vinta-supply-co-_-nyc-843194.jpeg',
-  '/images/pexels-godisable-jacob-978665.jpeg'
-]
-
 type PageProps = {
   params: { slug: string | string[] }
   searchParams: { [key: string]: string | string[] | undefined }
 }
 
 export default async function Page(props: PageProps) {
+  const [projectsData] = await Promise.all([getProjects()])
+
+  if (!projectsData) {
+    notFound()
+  }
+
   return (
     <>
       <Container fullWidth horizontalPadding={false}>
@@ -51,14 +45,14 @@ export default async function Page(props: PageProps) {
           horizontalPadding={false}
           bgColor="bg-slate-50"
           imageUrls={categoryUrls}
-        ></CategorySection>
+        />
         <ImageGridSection
+          projects={projectsData}
           horizontalPadding={false}
           bgColor="bg-slate-50"
-          imgList={imgList}
-        ></ImageGridSection>
-        <FaqsSection horizontalPadding={false}></FaqsSection>
-        <ContactSection horizontalPadding={false}></ContactSection>
+        />
+        <FaqsSection horizontalPadding={false} />
+        <ContactSection horizontalPadding={false} />
       </Container>
     </>
   )

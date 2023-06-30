@@ -17,13 +17,7 @@ const Users: CollectionConfig = {
       type: 'text',
       required: true
     },
-    slugField('name'),
-    {
-      name: 'avatar',
-      label: 'Avatar',
-      type: 'upload',
-      relationTo: 'media'
-    }
+    slugField('name')
   ]
 }
 

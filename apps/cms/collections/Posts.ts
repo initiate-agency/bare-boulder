@@ -8,7 +8,8 @@ const Posts: CollectionConfig = {
   slug: 'posts',
   admin: {
     defaultColumns: ['title', 'author', 'category', 'tags', 'status'],
-    useAsTitle: 'title'
+    useAsTitle: 'title',
+    hidden: true
   },
   access: {
     read: publishedOnly

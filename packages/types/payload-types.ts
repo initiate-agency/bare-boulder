@@ -7,6 +7,7 @@
 
 export interface Config {
   collections: {
+    projects: Project
     pages: Page
     categories: Category
     posts: Post
@@ -14,9 +15,44 @@ export interface Config {
     users: User
     media: Media
   }
-  globals: {
-    company: Company
-    'main-menu': MainMenu
+  globals: {}
+}
+export interface Project {
+  id: string
+  name?: string
+  description?: {
+    [k: string]: unknown
+  }[]
+  image?: string | Media
+}
+export interface Media {
+  id: string
+  alt: string
+  updatedAt: string
+  createdAt: string
+  url?: string
+  filename?: string
+  mimeType?: string
+  filesize?: number
+  width?: number
+  height?: number
+  sizes?: {
+    card?: {
+      url?: string
+      width?: number
+      height?: number
+      mimeType?: string
+      filesize?: number
+      filename?: string
+    }
+    feature?: {
+      url?: string
+      width?: number
+      height?: number
+      mimeType?: string
+      filesize?: number
+      filename?: string
+    }
   }
 }
 export interface Page {
@@ -100,7 +136,6 @@ export interface User {
   id: string
   name: string
   slug?: string
-  avatar?: string | Media
   updatedAt: string
   createdAt: string
   email?: string
@@ -110,36 +145,6 @@ export interface User {
   lockUntil?: string
   password?: string
 }
-export interface Media {
-  id: string
-  alt: string
-  updatedAt: string
-  createdAt: string
-  url?: string
-  filename?: string
-  mimeType?: string
-  filesize?: number
-  width?: number
-  height?: number
-  sizes?: {
-    card?: {
-      url?: string
-      width?: number
-      height?: number
-      mimeType?: string
-      filesize?: number
-      filename?: string
-    }
-    feature?: {
-      url?: string
-      width?: number
-      height?: number
-      mimeType?: string
-      filesize?: number
-      filename?: string
-    }
-  }
-}
 export interface Category {
   id: string
   name?: string
@@ -148,24 +153,4 @@ export interface Tag {
   id: string
   slug?: string
   name?: string
-}
-export interface Company {
-  id: string
-  name?: string
-  logo?: string | Media
-}
-export interface MainMenu {
-  id: string
-  navItems: {
-    link: {
-      type?: 'reference' | 'custom'
-      reference: {
-        value: string | Page
-        relationTo: 'pages'
-      }
-      url: string
-      label: string
-    }
-    id?: string
-  }[]
 }

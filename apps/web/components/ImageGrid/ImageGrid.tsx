@@ -1,32 +1,37 @@
 'use client'
+
+import { chunkArray } from '@/utilities/chunkArray'
+import { Project, Media } from 'types'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { useState, useCallback, useMemo } from 'react'
+
 export type ImageGridProps = {
+  projects: Project[]
   isPorfoPage?: boolean
-  imgList: string[]
 }
 
-export const ImageGrid = ({ isPorfoPage, imgList }: ImageGridProps) => {
+export const ImageGrid = ({ projects, isPorfoPage }: ImageGridProps) => {
   const router = useRouter()
 
   const [selectedImg, setSelectedImg] = useState(-1)
 
   const isTheFirstImg = useMemo(() => selectedImg === 0, [selectedImg])
   const isTheLastImg = useMemo(
-    () => selectedImg === imgList.length - 1,
-    [selectedImg, imgList]
+    () => selectedImg === projects.length - 1,
+    [selectedImg, projects]
   )
 
   const onClickImg = useCallback(
-    (urlIndex: number) => {
+    (id: string) => {
       if (isPorfoPage) {
-        setSelectedImg(urlIndex)
+        setSelectedImg(projects.findIndex((project) => project.id === id))
         return
       }
+
       router.push('/portfolio')
     },
-    [isPorfoPage, router]
+    [isPorfoPage, router, projects]
   )
 
   const onClickClose = useCallback(() => {
@@ -48,6 +53,32 @@ export const ImageGrid = ({ isPorfoPage, imgList }: ImageGridProps) => {
     },
     [selectedImg]
   )
+
+  const renderPortfolioGallery = () => {
+    const chunked = chunkArray(projects, 3)
+
+    return chunked.map((projects, index) => {
+      return (
+        <div key={'projects' + index} className="relative grid gap-4">
+          {projects.map((project, _index) => {
+            return (
+              <div key={'project' + _index}>
+                <Image
+                  width={400}
+                  height={1000}
+                  sizes="(max-width: 640px) 100vw, 400px"
+                  className="h-full max-w-full cursor-pointer rounded-lg object-cover"
+                  src={project.image.url}
+                  alt=""
+                  onClick={() => onClickImg(project.id)}
+                />
+              </div>
+            )
+          })}
+        </div>
+      )
+    })
+  }
 
   return (
     <div className={`${isPorfoPage ? 'pb-6 lg:pb-12 lg:pt-6' : ''}`}>
@@ -71,146 +102,7 @@ export const ImageGrid = ({ isPorfoPage, imgList }: ImageGridProps) => {
         </p>
       </div>
       <div className="grid grid-cols-2 gap-4 px-3 md:grid-cols-4 xl:px-0">
-        <div className="relative grid gap-4">
-          <div className="relative">
-            <Image
-              width={400}
-              height={1000}
-              sizes="(max-width: 640px) 100vw, 400px"
-              className="h-full max-w-full cursor-pointer rounded-lg object-cover"
-              src={imgList[0]}
-              alt=""
-              onClick={() => onClickImg(0)}
-            />
-          </div>
-          <div className="relative">
-            <Image
-              width={400}
-              height={1000}
-              sizes="(max-width: 640px) 100vw, 400px"
-              className="h-full max-w-full cursor-pointer rounded-lg object-cover"
-              src={imgList[1]}
-              alt=""
-              onClick={() => onClickImg(1)}
-            />
-          </div>
-          <div className="relative">
-            <Image
-              width={400}
-              height={1000}
-              sizes="(max-width: 640px) 100vw, 400px"
-              className="h-full max-w-full cursor-pointer rounded-lg object-cover"
-              src={imgList[2]}
-              alt=""
-              onClick={() => onClickImg(2)}
-            />
-          </div>
-        </div>
-        <div className="grid gap-4">
-          <div className="relative">
-            <Image
-              width={400}
-              height={1000}
-              sizes="(max-width: 640px) 100vw, 400px"
-              className="h-full max-w-full cursor-pointer rounded-lg object-cover"
-              src={imgList[3]}
-              alt=""
-              onClick={() => onClickImg(3)}
-            />
-          </div>
-          <div className="relative">
-            <Image
-              width={400}
-              height={1000}
-              sizes="(max-width: 640px) 100vw, 400px"
-              className="h-full max-w-full cursor-pointer rounded-lg object-cover"
-              src={imgList[4]}
-              alt=""
-              onClick={() => onClickImg(4)}
-            />
-          </div>
-          <div className="relative">
-            <Image
-              width={400}
-              height={1000}
-              sizes="(max-width: 640px) 100vw, 400px"
-              className="h-full max-w-full cursor-pointer rounded-lg object-cover"
-              src={imgList[5]}
-              alt=""
-              onClick={() => onClickImg(5)}
-            />
-          </div>
-        </div>
-        <div className="grid gap-4">
-          <div className="relative">
-            <Image
-              width={400}
-              height={1000}
-              sizes="(max-width: 640px) 100vw, 400px"
-              className="h-full max-w-full cursor-pointer rounded-lg object-cover"
-              src={imgList[6]}
-              alt=""
-              onClick={() => onClickImg(6)}
-            />
-          </div>
-          <div className="relative">
-            <Image
-              width={400}
-              height={1000}
-              sizes="(max-width: 640px) 100vw, 400px"
-              className="h-full max-w-full cursor-pointer rounded-lg object-cover"
-              src={imgList[7]}
-              alt=""
-              onClick={() => onClickImg(7)}
-            />
-          </div>
-          <div className="relative">
-            <Image
-              width={400}
-              height={1000}
-              sizes="(max-width: 640px) 100vw, 400px"
-              className="h-full max-w-full cursor-pointer rounded-lg object-cover"
-              src={imgList[8]}
-              alt=""
-              onClick={() => onClickImg(8)}
-            />
-          </div>
-        </div>
-        <div className="grid gap-4">
-          <div className="relative">
-            <Image
-              width={400}
-              height={1000}
-              sizes="(max-width: 640px) 100vw, 400px"
-              className="h-full max-w-full cursor-pointer rounded-lg object-cover"
-              src={imgList[9]}
-              alt=""
-              onClick={() => onClickImg(9)}
-            />
-          </div>
-          <div className="relative">
-            <Image
-              width={400}
-              height={1000}
-              sizes="(max-width: 640px) 100vw, 400px"
-              className="h-full max-w-full cursor-pointer rounded-lg object-cover"
-              src={imgList[10]}
-              alt=""
-              onClick={() => onClickImg(10)}
-            />
-          </div>
-          <div className="relative">
-            <Image
-              width={400}
-              height={1000}
-              sizes="(max-width: 640px) 100vw, 400px"
-              className="h-full max-w-full cursor-pointer rounded-lg object-cover"
-              src={imgList[11]}
-              alt=""
-              onClick={() => onClickImg(11)}
-            />
-          </div>
-        </div>
+        {renderPortfolioGallery()}
       </div>
       {selectedImg >= 0 && (
         <div
@@ -244,10 +136,13 @@ export const ImageGrid = ({ isPorfoPage, imgList }: ImageGridProps) => {
             <Image
               width={800}
               height={600}
-              src={imgList[selectedImg]}
+              src={(projects[selectedImg].image as Media).url || ''}
               alt="selected-img"
-              className="max-h-[600px] max-w-[800px] object-cover"
+              className="max-h-[500px] max-w-[800px] object-contain "
             />
+            <div className="p-4 text-center text-white">
+              This is some sample text
+            </div>
           </div>
         </div>
       )}
