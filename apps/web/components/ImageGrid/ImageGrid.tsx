@@ -15,6 +15,7 @@ export const ImageGrid = ({ projects, isPorfoPage }: ImageGridProps) => {
   const router = useRouter()
 
   const [selectedImg, setSelectedImg] = useState(-1)
+  const [description, setDescription] = useState<string | undefined>('')
 
   const isTheFirstImg = useMemo(() => selectedImg === 0, [selectedImg])
   const isTheLastImg = useMemo(
@@ -26,6 +27,10 @@ export const ImageGrid = ({ projects, isPorfoPage }: ImageGridProps) => {
     (id: string) => {
       if (isPorfoPage) {
         setSelectedImg(projects.findIndex((project) => project.id === id))
+        setDescription(
+          projects.find((project) => project.id === id)?.description || ''
+        )
+
         return
       }
 
@@ -140,9 +145,9 @@ export const ImageGrid = ({ projects, isPorfoPage }: ImageGridProps) => {
               alt="selected-img"
               className="max-h-[500px] max-w-[800px] object-contain "
             />
-            <div className="p-4 text-center text-white">
-              This is some sample text
-            </div>
+            {description && (
+              <div className="p-4 text-center text-white">{description}</div>
+            )}
           </div>
         </div>
       )}

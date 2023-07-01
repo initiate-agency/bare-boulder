@@ -19,7 +19,7 @@ const Projects: CollectionConfig = {
     },
     {
       name: 'description',
-      type: 'richText'
+      type: 'text'
     },
     {
       name: 'image',

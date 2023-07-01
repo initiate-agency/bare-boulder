@@ -7,150 +7,148 @@
 
 export interface Config {
   collections: {
-    projects: Project
-    pages: Page
-    categories: Category
-    posts: Post
-    tags: Tag
-    users: User
-    media: Media
-  }
-  globals: {}
+    projects: Project;
+    pages: Page;
+    categories: Category;
+    posts: Post;
+    tags: Tag;
+    users: User;
+    media: Media;
+  };
+  globals: {};
 }
 export interface Project {
-  id: string
-  name?: string
-  description?: {
-    [k: string]: unknown
-  }[]
-  image?: string | Media
+  id: string;
+  name?: string;
+  description?: string;
+  image?: string | Media;
 }
 export interface Media {
-  id: string
-  alt: string
-  updatedAt: string
-  createdAt: string
-  url?: string
-  filename?: string
-  mimeType?: string
-  filesize?: number
-  width?: number
-  height?: number
+  id: string;
+  alt: string;
+  updatedAt: string;
+  createdAt: string;
+  url?: string;
+  filename?: string;
+  mimeType?: string;
+  filesize?: number;
+  width?: number;
+  height?: number;
   sizes?: {
     card?: {
-      url?: string
-      width?: number
-      height?: number
-      mimeType?: string
-      filesize?: number
-      filename?: string
-    }
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
     feature?: {
-      url?: string
-      width?: number
-      height?: number
-      mimeType?: string
-      filesize?: number
-      filename?: string
-    }
-  }
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
+  };
 }
 export interface Page {
-  id: string
-  title: string
+  id: string;
+  title: string;
   layout: (
     | {
-        fullWidth?: boolean
-        horizontalPadding?: boolean
-        topPadding?: boolean
-        bottomPadding?: boolean
-        featuredPost?: string | Post
-        title?: string
-        description?: string
+        fullWidth?: boolean;
+        horizontalPadding?: boolean;
+        topPadding?: boolean;
+        bottomPadding?: boolean;
+        featuredPost?: string | Post;
+        title?: string;
+        description?: string;
         primaryAction: {
-          type?: 'reference' | 'custom'
+          type?: 'reference' | 'custom';
           reference: {
-            value: string | Page
-            relationTo: 'pages'
-          }
-          url: string
-          label: string
-        }
+            value: string | Page;
+            relationTo: 'pages';
+          };
+          url: string;
+          label: string;
+        };
         secondaryAction: {
-          type?: 'reference' | 'custom'
+          type?: 'reference' | 'custom';
           reference: {
-            value: string | Page
-            relationTo: 'pages'
-          }
-          url: string
-          label: string
-        }
-        id?: string
-        blockName?: string
-        blockType: 'hero'
+            value: string | Page;
+            relationTo: 'pages';
+          };
+          url: string;
+          label: string;
+        };
+        id?: string;
+        blockName?: string;
+        blockType: 'hero';
       }
     | {
-        fullWidth?: boolean
-        horizontalPadding?: boolean
-        topPadding?: boolean
-        bottomPadding?: boolean
-        title?: string
-        description?: string
-        id?: string
-        blockName?: string
-        blockType: 'headerSection'
+        fullWidth?: boolean;
+        horizontalPadding?: boolean;
+        topPadding?: boolean;
+        bottomPadding?: boolean;
+        title?: string;
+        description?: string;
+        id?: string;
+        blockName?: string;
+        blockType: 'headerSection';
       }
     | {
-        fullWidth?: boolean
-        horizontalPadding?: boolean
-        topPadding?: boolean
-        bottomPadding?: boolean
-        show?: '3' | '6' | '9'
-        id?: string
-        blockName?: string
-        blockType: 'blogSection'
+        fullWidth?: boolean;
+        horizontalPadding?: boolean;
+        topPadding?: boolean;
+        bottomPadding?: boolean;
+        show?: '3' | '6' | '9';
+        id?: string;
+        blockName?: string;
+        blockType: 'blogSection';
       }
-  )[]
-  slug?: string
-  updatedAt: string
-  createdAt: string
-  _status?: 'draft' | 'published'
+  )[];
+  slug?: string;
+  updatedAt: string;
+  createdAt: string;
+  _status?: 'draft' | 'published';
 }
 export interface Post {
-  id: string
-  slug?: string
-  title?: string
-  author?: string | User
-  publishedDate?: string
-  image?: string | Media
-  category?: string | Category
-  tags?: string[] | Tag[]
+  id: string;
+  slug?: string;
+  title?: string;
+  author?: string | User;
+  publishedDate?: string;
+  image?: string | Media;
+  category?: string | Category;
+  tags?: string[] | Tag[];
   content?: {
-    [k: string]: unknown
-  }[]
-  updatedAt: string
-  createdAt: string
-  _status?: 'draft' | 'published'
+    [k: string]: unknown;
+  }[];
+  updatedAt: string;
+  createdAt: string;
+  _status?: 'draft' | 'published';
 }
 export interface User {
-  id: string
-  name: string
-  slug?: string
-  updatedAt: string
-  createdAt: string
-  email?: string
-  resetPasswordToken?: string
-  resetPasswordExpiration?: string
-  loginAttempts?: number
-  lockUntil?: string
-  password?: string
+  id: string;
+  name: string;
+  slug?: string;
+  updatedAt: string;
+  createdAt: string;
+  email?: string;
+  resetPasswordToken?: string;
+  resetPasswordExpiration?: string;
+  loginAttempts?: number;
+  lockUntil?: string;
+  password?: string;
 }
 export interface Category {
-  id: string
-  name?: string
+  id: string;
+  name?: string;
 }
 export interface Tag {
-  id: string
-  slug?: string
-  name?: string
+  id: string;
+  slug?: string;
+  name?: string;
 }
