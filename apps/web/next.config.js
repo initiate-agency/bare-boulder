@@ -9,5 +9,14 @@ module.exports = {
       }
     ],
     domains: ['localhost', 'tailwindui.com']
+  },
+  async redirects() {
+    return [
+      {
+        source: '/admin',
+        destination: 'https://bare-boulder.payloadcms.app/admin',
+        permanent: true
+      }
+    ]
   }
 }
